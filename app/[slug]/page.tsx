@@ -29,16 +29,18 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
   if (!update) notFound()
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f0f2f5', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ height: '100dvh', background: '#f0f2f5', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
       <SiteHeader />
 
-      {/* Email content */}
-      <main style={{ maxWidth: 720, margin: '32px auto 0', padding: '0 24px 64px', flex: 1, width: '100%', boxSizing: 'border-box' }}>
-        <div
-          style={{ background: '#fff', borderRadius: 12, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)' }}
-          dangerouslySetInnerHTML={{ __html: cleanHtml(update.body) }}
-        />
+      {/* Scrollable email content */}
+      <main style={{ flex: 1, overflowY: 'auto', padding: '32px 24px 48px', boxSizing: 'border-box' }}>
+        <div style={{ maxWidth: 720, margin: '0 auto' }}>
+          <div
+            style={{ background: '#fff', borderRadius: 12, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)' }}
+            dangerouslySetInnerHTML={{ __html: cleanHtml(update.body) }}
+          />
+        </div>
       </main>
 
       <SiteFooter />

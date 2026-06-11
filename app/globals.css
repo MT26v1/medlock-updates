@@ -23,13 +23,33 @@ body { margin: 0; font-family: Inter, Arial, sans-serif; background: #f5f6f8; co
 .mt-nav-link { color: #F7F4EE; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 500; transition: color 0.2s; }
 .mt-nav-link:hover { color: #21a9ee; }
 .mt-nav-cta:hover  { background: rgba(33,169,238,0.15); }
-.mt-footer-link { color: rgba(255,255,255,0.6); font-size: 0.75rem; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
+.mt-footer-link { color: rgba(255,255,255,0.6); font-size: 0.75rem; font-weight: 400; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
 .mt-footer-link:hover { color: #21a9ee; }
 .mt-footer-btn {
   display: inline-flex; align-items: center; justify-content: center;
   padding: 12px 32px; border: 2px solid #21a9ee;
-  color: #fff; font-size: 0.8rem; font-weight: 600;
+  color: #fff; font-size: 0.8rem; font-weight: 500;
   letter-spacing: 0.1em; text-transform: uppercase;
   text-decoration: none; white-space: nowrap; transition: background 0.2s;
 }
 .mt-footer-btn:hover { background: rgba(33,169,238,0.15); }
+
+/* Social icons — match main site exactly */
+.social-icon img { filter: brightness(0) invert(1); opacity: 0.55; transition: filter 0.2s, opacity 0.2s; }
+.social-icon:hover img { filter: invert(57%) sepia(85%) saturate(490%) hue-rotate(169deg) brightness(103%) contrast(91%); opacity: 0.7; }
+
+/* Footer responsive overrides */
+@media (max-width: 1023px) {
+  .mt-footer-heading       { margin-bottom: 1.5rem !important; }
+  .mt-footer-social-icons  { align-self: flex-start !important; }
+  .mt-footer-legal-row     { justify-content: flex-start !important; }
+  .mt-footer-legal-text    { text-align: left !important; }
+}
+@media (min-width: 1024px) {
+  .mt-footer-social-icons  { margin-top: 1rem !important; }
+}
+
+/* Footer background image desktop-only (matches main site behaviour) */
+@media (max-width: 1023px) {
+  .footer-image-bg { display: none; }
+}
