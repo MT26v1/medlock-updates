@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
+import Image from 'next/image'
 
 export default function LoginPage() {
   const [password, setPassword] = useState('')
@@ -26,15 +27,13 @@ export default function LoginPage() {
   }
 
   return (
-    <div style={{ minHeight: '100vh', background: '#f5f6f8', display: 'flex', flexDirection: 'column' }}>
-      <header style={{ background: '#0B1F3A', padding: '24px 32px' }}>
-        <p style={{ color: '#fff', fontSize: 20, fontWeight: 600, margin: 0, letterSpacing: '-0.3px' }}>
-          Medlock &amp; Thames
-        </p>
-        <p style={{ color: '#21a9ee', fontSize: 12, margin: '4px 0 0', letterSpacing: 1, textTransform: 'uppercase' }}>
-          Currency Intelligence
-        </p>
-        <div style={{ height: 3, background: '#21a9ee', marginTop: 16, marginLeft: -32, marginRight: -32 }} />
+    <div style={{ minHeight: '100vh', background: '#f0f2f5', display: 'flex', flexDirection: 'column' }}>
+      <header style={{ background: '#0B1F3A' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '20px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+          <Image src="/logo.png" alt="Medlock & Thames" width={200} height={59} style={{ height: 44, width: 'auto' }} priority />
+          <span style={{ fontSize: 12, color: '#21a9ee', letterSpacing: 1.5, textTransform: 'uppercase', fontWeight: 500 }}>Currency Intelligence</span>
+        </div>
+        <div style={{ height: 3, background: 'linear-gradient(90deg, #21a9ee 0%, #1a85c0 100%)' }} />
       </header>
 
       <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'center', padding: '40px 24px' }}>
