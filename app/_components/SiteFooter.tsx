@@ -42,13 +42,13 @@ export function SiteFooter() {
                 letterSpacing: "-0.01em",
               }}
             >
-              Ready to receive this update directly to your mailbox?
+              Want this update in your inbox?
             </h2>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: "12px" }}>
-              <a href="https://www.medlockandthames.com/briefing" className="mt-footer-btn">
-                CLICK HERE
+              <a href="https://www.medlockandthames.com/briefing" className="mt-footer-btn" style={{ width: 280 }}>
+                RECEIVE UPDATE
               </a>
-              <a href="tel:+441612503375" className="mt-footer-btn">
+              <a href="tel:+441612503375" className="mt-footer-btn" style={{ width: 280 }}>
                 TEL +44(0)161 250 3375
               </a>
             </div>
@@ -107,8 +107,6 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Blue divider — matches main site marginTop 0.75rem */}
-        <div style={{ height: 1, background: "#21a9ee", marginTop: "12px" }} />
       </div>
     </footer>
   );
