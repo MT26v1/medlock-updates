@@ -26,7 +26,7 @@ export default async function IndexPage() {
 
       {/* Header */}
       <header style={{ background: '#0B1F3A' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '20px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '24px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
           <Image
             src="/logo.png"
             alt="Medlock & Thames"
@@ -35,15 +35,29 @@ export default async function IndexPage() {
             style={{ height: 44, width: 'auto' }}
             priority
           />
-          <span style={{ fontSize: 14, color: '#fff', textAlign: 'right', lineHeight: 1.5, fontFamily: 'var(--font-ubuntu)' }}>
-            Want to learn more?{' '}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 14 }}>
+            <span style={{ fontSize: 18, fontWeight: 300, color: '#fff', fontFamily: 'var(--font-ubuntu)', whiteSpace: 'nowrap' }}>
+              Want to learn more?
+            </span>
             <a
               href="https://www.medlockandthames.com/insights"
-              style={{ color: '#21a9ee', textDecoration: 'none', fontWeight: 500 }}
+              style={{
+                display: 'inline-block',
+                padding: '12px 28px',
+                border: '1.5px solid #21a9ee',
+                color: '#fff',
+                fontSize: 14,
+                fontWeight: 600,
+                letterSpacing: 1.5,
+                textTransform: 'uppercase',
+                textDecoration: 'none',
+                fontFamily: 'var(--font-ubuntu)',
+                whiteSpace: 'nowrap',
+              }}
             >
-              Visit our insights page
+              More Insights
             </a>
-          </span>
+          </div>
         </div>
         <div style={{ height: 3, background: 'linear-gradient(90deg, #21a9ee 0%, #1a85c0 100%)' }} />
       </header>
