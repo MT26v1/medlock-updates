@@ -13,12 +13,6 @@ export async function generateStaticParams() {
   return updates.map((u) => ({ slug: u.slug.current }))
 }
 
-function formatDate(iso: string) {
-  return new Date(iso).toLocaleDateString('en-GB', {
-    day: 'numeric', month: 'long', year: 'numeric',
-  })
-}
-
 function cleanHtml(html: string): string {
   return html
     .replace(/<img[^>]+\/api\/track\/open[^>]*>/gi, '')
@@ -38,7 +32,7 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
 
       {/* Header */}
       <header style={{ background: '#0B1F3A' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '20px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '20px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
           <Image
             src="/logo.png"
             alt="Medlock & Thames"
@@ -47,22 +41,21 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
             style={{ height: 44, width: 'auto' }}
             priority
           />
-          <span style={{ fontSize: 12, color: '#21a9ee', letterSpacing: 1.5, textTransform: 'uppercase', fontWeight: 500 }}>
-            Currency Intelligence
+          <span style={{ fontSize: 14, color: '#fff', textAlign: 'right', lineHeight: 1.5, fontFamily: 'var(--font-ubuntu)' }}>
+            Want to learn more?{' '}
+            <a
+              href="https://www.medlockandthames.com/insights"
+              style={{ color: '#21a9ee', textDecoration: 'none', fontWeight: 500 }}
+            >
+              Visit our insights page
+            </a>
           </span>
         </div>
         <div style={{ height: 3, background: 'linear-gradient(90deg, #21a9ee 0%, #1a85c0 100%)' }} />
       </header>
 
-      {/* Date label */}
-      <div style={{ maxWidth: 720, margin: '32px auto 0', padding: '0 24px', width: '100%', boxSizing: 'border-box' }}>
-        <p style={{ fontSize: 13, color: '#21a9ee', margin: 0, letterSpacing: 0.5, fontWeight: 500 }}>
-          {formatDate(update.publishedAt)}
-        </p>
-      </div>
-
       {/* Email content */}
-      <main style={{ maxWidth: 720, margin: '16px auto 0', padding: '0 24px 64px', flex: 1, width: '100%', boxSizing: 'border-box' }}>
+      <main style={{ maxWidth: 720, margin: '32px auto 0', padding: '0 24px 64px', flex: 1, width: '100%', boxSizing: 'border-box' }}>
         <div
           style={{ background: '#fff', borderRadius: 12, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)' }}
           dangerouslySetInnerHTML={{ __html: cleanHtml(update.body) }}
@@ -71,16 +64,12 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
 
       {/* Footer */}
       <footer style={{ background: '#0B1F3A', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '28px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-          <Image
-            src="/logo.png"
-            alt="Medlock & Thames"
-            width={120}
-            height={35}
-            style={{ height: 28, width: 'auto', opacity: 0.7 }}
-          />
-          <p style={{ margin: 0, fontSize: 12, color: '#4a6080' }}>
-            © {new Date().getFullYear()} Medlock &amp; Thames Ltd · Manchester · Currency Specialists
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '28px 32px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'wrap', gap: 12 }}>
+          <p style={{ margin: 0, fontSize: 12, color: '#4a6080', textAlign: 'right', lineHeight: 1.8 }}>
+            © 2026 Medlock &amp; Thames™&nbsp;&nbsp;t: +44(0)161 250 3376&nbsp;&nbsp;e:{' '}
+            <a href="mailto:info@medlockandthames.com" style={{ color: '#4a6080', textDecoration: 'none' }}>info@medlockandthames.com</a>
+            <br />
+            m: Adamson House, Towers Business Park, Manchester, M20 2YY
           </p>
         </div>
       </footer>

@@ -26,7 +26,7 @@ export default async function IndexPage() {
 
       {/* Header */}
       <header style={{ background: '#0B1F3A' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '20px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '20px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
           <Image
             src="/logo.png"
             alt="Medlock & Thames"
@@ -35,8 +35,14 @@ export default async function IndexPage() {
             style={{ height: 44, width: 'auto' }}
             priority
           />
-          <span style={{ fontSize: 12, color: '#21a9ee', letterSpacing: 1.5, textTransform: 'uppercase', fontWeight: 500 }}>
-            Currency Intelligence
+          <span style={{ fontSize: 14, color: '#fff', textAlign: 'right', lineHeight: 1.5, fontFamily: 'var(--font-ubuntu)' }}>
+            Want to learn more?{' '}
+            <a
+              href="https://www.medlockandthames.com/insights"
+              style={{ color: '#21a9ee', textDecoration: 'none', fontWeight: 500 }}
+            >
+              Visit our insights page
+            </a>
           </span>
         </div>
         <div style={{ height: 3, background: 'linear-gradient(90deg, #21a9ee 0%, #1a85c0 100%)' }} />
@@ -87,16 +93,12 @@ export default async function IndexPage() {
 
       {/* Footer */}
       <footer style={{ background: '#0B1F3A', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '28px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: 12 }}>
-          <Image
-            src="/logo.png"
-            alt="Medlock & Thames"
-            width={120}
-            height={35}
-            style={{ height: 28, width: 'auto', opacity: 0.7 }}
-          />
-          <p style={{ margin: 0, fontSize: 12, color: '#4a6080' }}>
-            © {new Date().getFullYear()} Medlock &amp; Thames Ltd · Manchester · Currency Specialists
+        <div style={{ maxWidth: 900, margin: '0 auto', padding: '28px 32px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'wrap', gap: 12 }}>
+          <p style={{ margin: 0, fontSize: 12, color: '#4a6080', textAlign: 'right', lineHeight: 1.8 }}>
+            © 2026 Medlock &amp; Thames™&nbsp;&nbsp;t: +44(0)161 250 3376&nbsp;&nbsp;e:{' '}
+            <a href="mailto:info@medlockandthames.com" style={{ color: '#4a6080', textDecoration: 'none' }}>info@medlockandthames.com</a>
+            <br />
+            m: Adamson House, Towers Business Park, Manchester, M20 2YY
           </p>
         </div>
       </footer>
