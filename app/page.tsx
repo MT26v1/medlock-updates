@@ -1,8 +1,9 @@
 import Link from 'next/link'
-import Image from 'next/image'
 import { cookies } from 'next/headers'
 import { redirect } from 'next/navigation'
 import { getAllUpdates } from '@/lib/sanity'
+import { SiteHeader } from './_components/SiteHeader'
+import { SiteFooter } from './_components/SiteFooter'
 
 export const revalidate = 60
 
@@ -24,43 +25,7 @@ export default async function IndexPage() {
   return (
     <div style={{ minHeight: '100vh', background: '#f0f2f5', display: 'flex', flexDirection: 'column' }}>
 
-      {/* Header */}
-      <header style={{ background: '#0B1F3A' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '24px 32px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 24 }}>
-          <Image
-            src="/logo.png"
-            alt="Medlock & Thames"
-            width={200}
-            height={59}
-            style={{ height: 44, width: 'auto' }}
-            priority
-          />
-          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: 14 }}>
-            <span style={{ fontSize: 18, fontWeight: 300, color: '#fff', fontFamily: 'var(--font-ubuntu)', whiteSpace: 'nowrap' }}>
-              Want to learn more?
-            </span>
-            <a
-              href="https://www.medlockandthames.com/insights"
-              style={{
-                display: 'inline-block',
-                padding: '12px 28px',
-                border: '1.5px solid #21a9ee',
-                color: '#fff',
-                fontSize: 14,
-                fontWeight: 600,
-                letterSpacing: 1.5,
-                textTransform: 'uppercase',
-                textDecoration: 'none',
-                fontFamily: 'var(--font-ubuntu)',
-                whiteSpace: 'nowrap',
-              }}
-            >
-              More Insights
-            </a>
-          </div>
-        </div>
-        <div style={{ height: 3, background: 'linear-gradient(90deg, #21a9ee 0%, #1a85c0 100%)' }} />
-      </header>
+      <SiteHeader />
 
       {/* Content */}
       <main style={{ maxWidth: 720, margin: '0 auto', padding: '48px 24px', flex: 1, width: '100%', boxSizing: 'border-box' }}>
@@ -105,17 +70,7 @@ export default async function IndexPage() {
         )}
       </main>
 
-      {/* Footer */}
-      <footer style={{ background: '#0B1F3A', borderTop: '1px solid rgba(255,255,255,0.07)' }}>
-        <div style={{ maxWidth: 900, margin: '0 auto', padding: '28px 32px', display: 'flex', alignItems: 'center', justifyContent: 'flex-end', flexWrap: 'wrap', gap: 12 }}>
-          <p style={{ margin: 0, fontSize: 12, color: '#4a6080', textAlign: 'right', lineHeight: 1.8 }}>
-            © 2026 Medlock &amp; Thames™&nbsp;&nbsp;t: +44(0)161 250 3376&nbsp;&nbsp;e:{' '}
-            <a href="mailto:info@medlockandthames.com" style={{ color: '#4a6080', textDecoration: 'none' }}>info@medlockandthames.com</a>
-            <br />
-            m: Adamson House, Towers Business Park, Manchester, M20 2YY
-          </p>
-        </div>
-      </footer>
+      <SiteFooter />
 
     </div>
   )
