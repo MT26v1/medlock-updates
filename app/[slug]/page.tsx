@@ -23,7 +23,7 @@ function cleanHtml(html: string): string {
       try { return `href="${decodeURIComponent(encoded).split('?')[0]}"` } catch { return 'href="#"' }
     })
     // Remove unsubscribe footer paragraph
-    .replace(/<p[^>]*>You are receiving this because[^<]*<br[^>]*>.*?<\/p>/gis, '')
+    .replace(/<p[^>]*>You are receiving this because[^<]*<br[^>]*>[\s\S]*?<\/p>/gi, '')
 }
 
 export default async function UpdatePage({ params }: { params: Promise<{ slug: string }> }) {
