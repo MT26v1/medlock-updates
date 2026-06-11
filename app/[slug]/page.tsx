@@ -29,7 +29,7 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
   if (!update) notFound()
 
   return (
-    <div style={{ height: '100dvh', background: '#f0f2f5', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ height: '100dvh', backgroundImage: "url('/Towers.webp')", backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
 
       <SiteHeader />
 

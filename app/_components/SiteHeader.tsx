@@ -72,7 +72,7 @@ export function SiteHeader() {
               alt="Medlock &amp; Thames"
               width={200}
               height={59}
-              style={{ height: 40, width: "auto" }}
+              style={{ width: 180, height: "auto" }}
               priority
             />
           </a>

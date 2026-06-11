@@ -17,34 +17,10 @@ const SOCIAL = [
 
 export function SiteFooter() {
   return (
-    <footer style={{ background: "#0B1F3A", position: "relative", flexShrink: 0 }}>
-
-      {/* Background image — desktop only (hidden on mobile via CSS) */}
-      <div
-        className="footer-image-bg"
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage: "url('/Towers.webp')",
-          backgroundSize: "cover",
-          backgroundPosition: "center",
-          zIndex: 0,
-        }}
-      />
-      {/* Navy overlay */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundColor: "rgba(11,31,58,0.94)",
-          zIndex: 1,
-        }}
-      />
+    <footer style={{ background: "#0B1F3A", flexShrink: 0 }}>
 
       {/* Content */}
-      <div style={{ position: "relative", zIndex: 2, maxWidth: 1200, margin: "0 auto", padding: "48px 24px 32px" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "12px 24px 4px" }}>
 
         <div
           style={{
@@ -64,14 +40,14 @@ export function SiteFooter() {
                 fontSize: "clamp(1.5rem, 2.5vw, 2rem)",
                 fontWeight: 400,
                 color: "#F7F4EE",
-                margin: "0 0 20px",
+                margin: "0 0 20px",  /* matches main site mb-5 */
                 lineHeight: 1.25,
                 letterSpacing: "-0.01em",
               }}
             >
               Ready to talk to someone who knows the market?
             </h2>
-            <div style={{ display: "flex", flexWrap: "wrap", gap: 16 }}>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: "12px" }}>
               <a href="https://www.medlockandthames.com/contact" className="mt-footer-btn">
                 BOOK A CONSULTATION
               </a>
@@ -134,8 +110,8 @@ export function SiteFooter() {
           </div>
         </div>
 
-        {/* Blue divider */}
-        <div style={{ height: 1, background: "#21a9ee", marginTop: 28 }} />
+        {/* Blue divider — matches main site marginTop 0.75rem */}
+        <div style={{ height: 1, background: "#21a9ee", marginTop: "12px" }} />
       </div>
     </footer>
   );

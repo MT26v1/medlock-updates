@@ -1,5 +1,12 @@
 *, *::before, *::after { box-sizing: border-box; }
-body { margin: 0; font-family: Inter, Arial, sans-serif; background: #f5f6f8; color: #1a1a1a; }
+body {
+  margin: 0;
+  font-family: Inter, Arial, sans-serif;
+  background: #f5f6f8;
+  color: #1a1a1a;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 /* Site header nav — responsive show/hide */
 .mt-nav-list { display: none; list-style: none; margin: 0; padding: 0; }
@@ -14,13 +21,13 @@ body { margin: 0; font-family: Inter, Arial, sans-serif; background: #f5f6f8; co
   .mt-nav-cta   {
     display: inline-flex; align-items: center; justify-content: center;
     padding: 8px 16px; border: 2px solid #21a9ee;
-    color: #fff; font-size: 0.7rem; font-weight: 600;
-    letter-spacing: 0.08em; text-transform: uppercase;
+    color: #fff; font-size: 11px; font-weight: 500;
+    letter-spacing: 0.05em; text-transform: uppercase;
     text-decoration: none; white-space: nowrap; flex-shrink: 0;
   }
   .mt-hamburger { display: none; }
 }
-.mt-nav-link { color: #F7F4EE; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 500; transition: color 0.2s; }
+.mt-nav-link { color: #F7F4EE; text-decoration: none; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 0.05em; font-weight: 400; transition: color 0.2s; }
 .mt-nav-link:hover { color: #21a9ee; }
 .mt-nav-cta:hover  { background: rgba(33,169,238,0.15); }
 .mt-footer-link { color: rgba(255,255,255,0.6); font-size: 0.75rem; font-weight: 400; text-decoration: none; transition: color 0.2s; white-space: nowrap; }
