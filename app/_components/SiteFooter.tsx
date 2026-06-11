@@ -2,9 +2,6 @@ import React from "react";
 
 const LEGAL_LINKS = [
   { label: "Regulatory Info", href: "https://www.medlockandthames.com/regulatory-info" },
-  { label: "Privacy Policy",  href: "https://www.medlockandthames.com/privacy-policy" },
-  { label: "Complaints",      href: "https://www.medlockandthames.com/complaints" },
-  { label: "Briefing",        href: "https://www.medlockandthames.com/briefing" },
   { label: "Contact Us",      href: "https://www.medlockandthames.com/contact" },
 ];
 
@@ -45,11 +42,11 @@ export function SiteFooter() {
                 letterSpacing: "-0.01em",
               }}
             >
-              Ready to talk to someone who knows the market?
+              Ready to receive this update directly to your mailbox?
             </h2>
             <div style={{ display: "flex", flexWrap: "wrap", gap: 16, marginBottom: "12px" }}>
-              <a href="https://www.medlockandthames.com/contact" className="mt-footer-btn">
-                BOOK A CONSULTATION
+              <a href="https://www.medlockandthames.com/briefing" className="mt-footer-btn">
+                CLICK HERE
               </a>
               <a href="tel:+441612503375" className="mt-footer-btn">
                 TEL +44(0)161 250 3375

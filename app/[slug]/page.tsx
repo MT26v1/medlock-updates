@@ -29,12 +29,12 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
   if (!update) notFound()
 
   return (
-    <div style={{ height: '100dvh', backgroundImage: "linear-gradient(rgba(11,31,58,0.70), rgba(11,31,58,0.70)), url('/Towers.webp')", backgroundSize: 'cover', backgroundPosition: 'center', display: 'flex', flexDirection: 'column', overflow: 'hidden' }}>
+    <div style={{ minHeight: '100vh', backgroundImage: "linear-gradient(rgba(11,31,58,0.70), rgba(11,31,58,0.70)), url('/Towers.webp')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', display: 'flex', flexDirection: 'column' }}>
 
       <SiteHeader />
 
-      {/* Scrollable email content */}
-      <main style={{ flex: 1, overflowY: 'auto', padding: '32px 24px 48px', boxSizing: 'border-box' }}>
+      {/* Email content — flex:1 ensures bg fills screen even on short emails */}
+      <main style={{ flex: 1, padding: '32px 24px 48px', boxSizing: 'border-box' }}>
         <div style={{ maxWidth: 720, margin: '0 auto' }}>
           <div
             style={{ background: '#fff', borderRadius: 12, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)' }}

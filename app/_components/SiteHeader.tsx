@@ -8,7 +8,6 @@ const NAV_LINKS = [
   { text: "Personal",    href: "https://www.medlockandthames.com/personal-currency" },
   { text: "Finance",     href: "https://www.medlockandthames.com/business-finance" },
   { text: "Apps vs. Us", href: "https://www.medlockandthames.com/where-apps-fall-short" },
-  { text: "Partners",    href: "https://www.medlockandthames.com/partnership" },
   { text: "Insights",    href: "https://www.medlockandthames.com/insights" },
   { text: "About",       href: "https://www.medlockandthames.com/about" },
 ];
@@ -89,8 +88,8 @@ export function SiteHeader() {
           </ul>
 
           {/* Desktop CTA */}
-          <a href="https://www.medlockandthames.com/contact" className="mt-nav-cta">
-            GET LIVE QUOTE
+          <a href="https://www.medlockandthames.com/briefing" className="mt-nav-cta">
+            RECEIVE UPDATE
           </a>
 
           {/* Hamburger */}
@@ -105,8 +104,6 @@ export function SiteHeader() {
           </button>
         </nav>
 
-        {/* Accent bar */}
-        <div style={{ height: 2, background: "linear-gradient(90deg, #21a9ee 0%, #1a85c0 100%)" }} />
       </header>
 
       {/* Mobile full-screen overlay */}
@@ -166,7 +163,7 @@ export function SiteHeader() {
           {/* Mobile CTA */}
           <div style={{ flexShrink: 0, marginTop: 24 }}>
             <a
-              href="https://www.medlockandthames.com/contact"
+              href="https://www.medlockandthames.com/briefing"
               onClick={() => setMobileOpen(false)}
               style={{
                 display: "block",
@@ -182,7 +179,7 @@ export function SiteHeader() {
                 textAlign: "center",
               }}
             >
-              GET LIVE QUOTE
+              RECEIVE UPDATE
             </a>
           </div>
         </div>
