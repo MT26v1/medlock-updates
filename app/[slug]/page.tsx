@@ -1,8 +1,11 @@
 import { notFound } from 'next/navigation'
-import Link from 'next/link'
 import { getUpdate, getAllUpdates } from '@/lib/sanity'
 
 export const revalidate = 60
+
+export const metadata = {
+  robots: 'noindex, nofollow',
+}
 
 export async function generateStaticParams() {
   const updates = await getAllUpdates()
@@ -35,23 +38,19 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
     <div style={{ minHeight: '100vh', background: '#f5f6f8' }}>
       {/* Header */}
       <header style={{ background: '#0B1F3A', padding: '24px 32px' }}>
-        <Link href="/" style={{ textDecoration: 'none' }}>
-          <p style={{ color: '#fff', fontSize: 20, fontWeight: 600, margin: 0, letterSpacing: '-0.3px' }}>
-            Medlock &amp; Thames
-          </p>
-          <p style={{ color: '#21a9ee', fontSize: 12, margin: '4px 0 0', letterSpacing: 1, textTransform: 'uppercase' }}>
-            Currency Intelligence
-          </p>
-        </Link>
+        <p style={{ color: '#fff', fontSize: 20, fontWeight: 600, margin: 0, letterSpacing: '-0.3px' }}>
+          Medlock &amp; Thames
+        </p>
+        <p style={{ color: '#21a9ee', fontSize: 12, margin: '4px 0 0', letterSpacing: 1, textTransform: 'uppercase' }}>
+          Currency Intelligence
+        </p>
         <div style={{ height: 3, background: '#21a9ee', marginTop: 16, marginLeft: -32, marginRight: -32 }} />
       </header>
 
-      {/* Breadcrumb */}
+      {/* Date */}
       <div style={{ maxWidth: 680, margin: '0 auto', padding: '24px 24px 0' }}>
         <p style={{ fontSize: 13, color: '#999', margin: 0 }}>
-          <Link href="/" style={{ color: '#21a9ee', textDecoration: 'none' }}>All updates</Link>
-          {' '}&rsaquo;{' '}
-          <span>{formatDate(update.publishedAt)}</span>
+          {formatDate(update.publishedAt)}
         </p>
       </div>
 
