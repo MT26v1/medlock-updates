@@ -21,11 +21,13 @@ function cleanHtml(html: string): string {
       try { return `href="${decodeURIComponent(encoded).split('?')[0]}"` } catch { return 'href="#"' }
     })
     .replace(/<p[^>]*>You are receiving this because[^<]*<br[^>]*>[\s\S]*?<\/p>/gi, '')
-    // Make outer wrapper table full-width so the grey background fills the page
-    .replace(/(<table)(\ style="background-color:#E8ECF3")/i, '$1 style="background-color:#E8ECF3;width:100%;min-height:100vh"')
-    // Make the inner email container span full width (remove 600px constraint)
+    // Make outer wrapper table transparent so page background shows through
+    .replace(/(<table)(\ style="background-color:#E8ECF3")/i, '$1 style="background-color:transparent;width:100%;min-height:100vh"')
+    // Give the outer td padding so the white card has breathing room
+    .replace(/(<td style="padding:0">)(<table class="mt-container")/i, '<td style="padding:48px 24px">$2')
+    // Centre the inner 600px email container and add card shadow
     .replace(/(class="mt-container"\ style=")(width:600px;max-width:600px;background-color:#FFFFFF)/i,
-      '$1width:100%;max-width:100%;background-color:#FFFFFF')
+      '$1$2;margin:0 auto;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06)')
 }
 
 export default async function UpdatePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -34,7 +36,7 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
   if (!update) notFound()
 
   return (
-    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#E8ECF3' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundImage: "linear-gradient(rgba(11,31,58,0.70), rgba(11,31,58,0.70)), url('/Towers.webp')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed' }}>
 
       <SiteHeader />
 

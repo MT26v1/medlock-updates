@@ -64,9 +64,3 @@ body {
 @media (max-width: 1023px) {
   .footer-image-bg { display: none; }
 }
-
-/* Make all tables inside the email update span full width */
-.mt-container table {
-  width: 100% !important;
-  max-width: 100% !important;
-}
