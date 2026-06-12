@@ -21,6 +21,11 @@ function cleanHtml(html: string): string {
       try { return `href="${decodeURIComponent(encoded).split('?')[0]}"` } catch { return 'href="#"' }
     })
     .replace(/<p[^>]*>You are receiving this because[^<]*<br[^>]*>[\s\S]*?<\/p>/gi, '')
+    // Make outer wrapper table full-width so the grey background fills the page
+    .replace(/(<table)(\ style="background-color:#E8ECF3")/i, '$1 style="background-color:#E8ECF3;width:100%;min-height:100vh"')
+    // Make the inner email container span full width (remove 600px constraint)
+    .replace(/(class="mt-container"\ style=")(width:600px;max-width:600px;background-color:#FFFFFF)/i,
+      '$1width:100%;max-width:100%;background-color:#FFFFFF')
 }
 
 export default async function UpdatePage({ params }: { params: Promise<{ slug: string }> }) {
@@ -29,18 +34,13 @@ export default async function UpdatePage({ params }: { params: Promise<{ slug: s
   if (!update) notFound()
 
   return (
-    <div style={{ minHeight: '100vh', backgroundImage: "linear-gradient(rgba(11,31,58,0.70), rgba(11,31,58,0.70)), url('/Towers.webp')", backgroundSize: 'cover', backgroundPosition: 'center', backgroundAttachment: 'fixed', display: 'flex', flexDirection: 'column' }}>
+    <div style={{ minHeight: '100vh', display: 'flex', flexDirection: 'column', backgroundColor: '#E8ECF3' }}>
 
       <SiteHeader />
 
-      {/* Email content — flex:1 ensures bg fills screen even on short emails */}
-      <main style={{ flex: 1, padding: '32px 24px 48px', boxSizing: 'border-box' }}>
-        <div style={{ maxWidth: 720, margin: '0 auto' }}>
-          <div
-            style={{ background: '#fff', borderRadius: 12, overflow: 'hidden', boxShadow: '0 1px 4px rgba(0,0,0,0.08), 0 4px 16px rgba(0,0,0,0.06)' }}
-            dangerouslySetInnerHTML={{ __html: cleanHtml(update.body) }}
-          />
-        </div>
+      {/* Email content — no padding/maxWidth here; the email's own grey table fills the page */}
+      <main style={{ flex: 1, padding: 0, boxSizing: 'border-box' }}>
+        <div dangerouslySetInnerHTML={{ __html: cleanHtml(update.body) }} />
       </main>
 
       <SiteFooter />
