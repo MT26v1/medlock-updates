@@ -16,14 +16,14 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     openGraph: {
       title,
       description: 'Weekly currency market intelligence from Medlock & Thames.',
-      images: [{ url: '/og-insights.png', width: 1200, height: 630, alt: 'Medlock & Thames Market Update' }],
+      images: [{ url: 'https://upthdycnzleiwwnlidpr.supabase.co/storage/v1/object/public/weekly-updates/assets/og-insights.png', width: 1200, height: 630, alt: 'Medlock & Thames Market Update' }],
       type: 'article',
     },
     twitter: {
       card: 'summary_large_image',
       title,
       description: 'Weekly currency market intelligence from Medlock & Thames.',
-      images: ['/og-insights.png'],
+      images: ['https://upthdycnzleiwwnlidpr.supabase.co/storage/v1/object/public/weekly-updates/assets/og-insights.png'],
     },
   }
 }
