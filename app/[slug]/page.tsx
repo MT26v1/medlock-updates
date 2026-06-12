@@ -5,8 +5,27 @@ import { SiteFooter } from '../_components/SiteFooter'
 
 export const revalidate = 60
 
-export const metadata = {
-  robots: 'noindex, nofollow',
+export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const update = await getUpdate(slug)
+  const title = update?.subject ?? update?.title ?? 'Weekly Update'
+  return {
+    title: `${title} — Medlock & Thames`,
+    description: 'Weekly currency market intelligence from Medlock & Thames.',
+    robots: 'noindex, nofollow',
+    openGraph: {
+      title,
+      description: 'Weekly currency market intelligence from Medlock & Thames.',
+      images: [{ url: '/og-insights.png', width: 1200, height: 630, alt: 'Medlock & Thames Market Update' }],
+      type: 'article',
+    },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description: 'Weekly currency market intelligence from Medlock & Thames.',
+      images: ['/og-insights.png'],
+    },
+  }
 }
 
 export async function generateStaticParams() {

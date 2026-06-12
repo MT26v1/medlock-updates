@@ -18,6 +18,9 @@ const ubuntu = Ubuntu({
 export const metadata: Metadata = {
   title: 'Market Updates — Medlock & Thames',
   description: 'Weekly currency market intelligence from Medlock & Thames.',
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL ?? 'https://updates.medlockandthames.com'
+  ),
 }
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
