@@ -64,3 +64,8 @@ body {
 @media (max-width: 1023px) {
   .footer-image-bg { display: none; }
 }
+
+/* Stretch inner tables (rates, blocks, calendar) to fill the email card */
+.mt-container table {
+  width: 100% !important;
+}

@@ -27,7 +27,7 @@ function cleanHtml(html: string): string {
     .replace(/(<td style="padding:0">)(<table class="mt-container")/i, '<td style="padding:48px 24px">$2')
     // Centre the inner 600px email container and add card shadow
     .replace(/(class="mt-container"\ style=")(width:600px;max-width:600px;background-color:#FFFFFF)/i,
-      '$1$2;margin:0 auto;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06)')
+      '$1$2;margin:0 auto;box-shadow:0 1px 4px rgba(0,0,0,0.08),0 4px 16px rgba(0,0,0,0.06)')
 }
 
 export default async function UpdatePage({ params }: { params: Promise<{ slug: string }> }) {
