@@ -10,7 +10,7 @@ export const revalidate = 60
 function formatDate(iso: string) {
   return new Date(iso).toLocaleDateString('en-GB', {
     day: 'numeric', month: 'long', year: 'numeric',
-  })
+  }).toUpperCase()
 }
 
 export default async function IndexPage() {
@@ -27,46 +27,50 @@ export default async function IndexPage() {
 
       <SiteHeader />
 
-      {/* Content */}
-      <main style={{ maxWidth: 720, margin: '0 auto', padding: '48px 24px', flex: 1, width: '100%', boxSizing: 'border-box' }}>
-        <h1 style={{ fontSize: 26, fontWeight: 700, color: '#0B1F3A', marginBottom: 6 }}>
+      <main style={{ flex: 1, maxWidth: 960, margin: '0 auto', padding: '56px 24px 64px', width: '100%', boxSizing: 'border-box' }}>
+
+        {/* Page heading */}
+        <p style={{ margin: '0 0 8px', fontSize: 11, fontWeight: 600, letterSpacing: '0.12em', textTransform: 'uppercase', color: '#21a9ee' }}>
+          From the desk
+        </p>
+        <h1 style={{ margin: '0 0 6px', fontSize: 'clamp(1.75rem, 3vw, 2.5rem)', fontWeight: 400, color: '#F7F4EE', fontFamily: 'var(--font-ubuntu)', lineHeight: 1.15 }}>
           Weekly Market Updates
         </h1>
-        <p style={{ color: '#64748b', marginBottom: 36, fontSize: 15 }}>
+        <p style={{ margin: '0 0 40px', fontSize: 15, color: 'rgba(247,244,238,0.55)', fontWeight: 400 }}>
           Currency intelligence from our desk, sent weekly.
         </p>
 
+        {/* Update list panel */}
         {updates.length === 0 ? (
-          <p style={{ color: '#999' }}>No updates yet.</p>
+          <p style={{ color: 'rgba(247,244,238,0.5)' }}>No updates yet.</p>
         ) : (
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 12 }}>
-            {updates.map((u) => (
-              <li key={u.slug.current}>
-                <Link href={`/${u.slug.current}`} style={{ textDecoration: 'none' }}>
-                  <div style={{
-                    background: '#fff',
-                    borderRadius: 10,
-                    padding: '18px 24px',
-                    boxShadow: '0 1px 3px rgba(0,0,0,0.06)',
+          <div style={{ background: 'rgba(11,31,58,0.72)', border: '1px solid rgba(255,255,255,0.08)', borderRadius: 12, overflow: 'hidden' }}>
+            {updates.map((u, i) => (
+              <Link key={u.slug.current} href={`/${u.slug.current}`} style={{ textDecoration: 'none', display: 'block' }}>
+                <div
+                  className="update-row"
+                  style={{
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'space-between',
-                    gap: 16,
-                  }}>
-                    <div>
-                      <p style={{ fontSize: 11, color: '#21a9ee', margin: '0 0 5px', textTransform: 'uppercase', letterSpacing: 1.2, fontWeight: 600 }}>
-                        {formatDate(u.publishedAt)}
-                      </p>
-                      <p style={{ fontSize: 16, fontWeight: 600, color: '#0B1F3A', margin: 0 }}>
-                        {u.subject ?? u.title}
-                      </p>
-                    </div>
-                    <span style={{ color: '#21a9ee', fontSize: 18, flexShrink: 0 }}>›</span>
+                    gap: 24,
+                    padding: '18px 28px',
+                    borderTop: i === 0 ? 'none' : '1px solid rgba(255,255,255,0.07)',
+                  }}
+                >
+                  <div style={{ display: 'flex', alignItems: 'center', gap: 28, minWidth: 0 }}>
+                    <span style={{ fontSize: 11, fontWeight: 600, letterSpacing: '0.1em', color: '#21a9ee', whiteSpace: 'nowrap', flexShrink: 0 }}>
+                      {formatDate(u.publishedAt)}
+                    </span>
+                    <span style={{ fontSize: 15, fontWeight: 500, color: '#F7F4EE', whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                      {u.subject ?? u.title}
+                    </span>
                   </div>
-                </Link>
-              </li>
+                  <span style={{ color: '#21a9ee', fontSize: 20, flexShrink: 0, lineHeight: 1 }}>›</span>
+                </div>
+              </Link>
             ))}
-          </ul>
+          </div>
         )}
       </main>
 
